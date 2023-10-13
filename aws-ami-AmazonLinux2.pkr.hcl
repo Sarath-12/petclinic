@@ -11,7 +11,7 @@ source "amazon-ebs" "Amazon_ami_image" {
   region                      = "us-east-2"
   ami_name                    = "ami-build-with-packer-{{timestamp}}"
   instance_type               = "t2.micro"
-  source_ami                  = "ami-0d1c47ab964ae2b87"
+  source_ami                  = "ami-0aec300fa613b1c92"
   ssh_username                = "ec2-user"
   associate_public_ip_address = true
   subnet_id                   = "subnet-00886041eab1646d2"
