@@ -21,15 +21,15 @@ source "amazon-ebs" "Amazon_ami_image" {
   ]
 }
 
-// build {
-//   name = "hq-packer"
-//   sources = [
-//     "amazon-ebs.Amazon_ami_image"
-//   ]
-//   provisioner "ansible" {
-//     playbook_file = "AmznLinux2_playbook.yml"
-//   }
-// }
+build {
+name = "hq-packer"
+sources = [
+     "amazon-ebs.Amazon_ami_image"
+   ]
+   provisioner "ansible" {
+   playbook_file = "AmznLinux2_playbook.yml"
+   }
+ }
 
 build {
   name = "hq-packer"
