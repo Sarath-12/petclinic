@@ -14,8 +14,8 @@ source "amazon-ebs" "Amazon_ami_image" {
   source_ami                  = "ami-0d1c47ab964ae2b87"
   ssh_username                = "ec2-user"
   associate_public_ip_address = true
-  subnet_id                   = "subnet-040a331d4c3bf167e"
-  security_group_id           = "sg-0073829f31cd7a8a4" 
+  subnet_id                   = "subnet-00886041eab1646d2"
+  security_group_id           = "sg-036620696910fdd53" 
   ami_regions = [
     "us-east-2"
   ]
