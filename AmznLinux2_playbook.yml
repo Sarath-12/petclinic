@@ -1,0 +1,83 @@
+---
+- hosts: all #When ansible controller is connecting to the same machine, we need to mention all
+  become: yes
+  become_user: root
+  become_method: sudo
+  tasks:
+
+    - name: Update YUM package manager repositories cache
+      become: true
+      yum:
+        update_cache: yes
+
+    - name: install wget
+      yum:
+        name: wget
+        state: present
+
+    - name: Install Maven using Ansible
+      package:
+        name: "{{ packages }}"
+        state: present
+      vars:
+        packages:
+           - maven
+
+    - name: Install docker
+      package:
+        name: docker
+        update_cache: yes
+        state: latest
+
+    # - name: install openjdk
+    #   become: yes
+    #   package:
+    #     name: java-1.8.0-openjdk
+    #     sudo: yes
+    #     state: present
+
+    # - name: download jenkins.repo
+    #   become: yes
+    #   get_url:
+    #     url: http://pkg.jenkins-ci.org/redhat-stable/jenkins.repo
+    #     dest: /etc/yum.repos.d/jenkins.repo
+
+    # - name: import jenkins key
+    #   become: yes
+    #   rpm_key:
+    #     state: present
+    #     key: https://jenkins-ci.org/redhat/jenkins-ci.org.key
+
+    # - name: install jenkins
+    #   become: yes
+    #   package:
+    #     name: jenkins
+    #     state: present
+
+    # - name: start jenkins
+    #   systemd:
+    #     name: jenkins
+    #     state: started
+
+    # - name: enable jenkins
+    #   systemd:
+    #     name: jenkins
+    #     enabled: true
+
+    # - name: sleep for 30 seconds and continue with play
+    #   wait_for: timeout=30
+    #   delegate_to: localhost
+
+    # - name: init password jenkin
+    #   shell: cat /var/lib/jenkins/secrets/initialAdminPassword
+    #   changed_when: false
+    #   register: result
+
+    # - name: print init password jenkins
+    #   debug:
+    #     var: result.stdout
+    
+
+    
+
+
