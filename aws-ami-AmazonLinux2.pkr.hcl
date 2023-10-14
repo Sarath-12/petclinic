@@ -11,11 +11,11 @@ source "amazon-ebs" "Amazon_ami_image" {
   region                      = "us-east-2"
   ami_name                    = "ami-build-with-packer-{{timestamp}}"
   instance_type               = "t2.micro"
-  source_ami                  = "ami-0aec300fa613b1c92"
+  source_ami                  = "ami-056c1e176f5af0928"
   ssh_username                = "ec2-user"
   associate_public_ip_address = true
-  subnet_id                   = "subnet-00886041eab1646d2"
-  security_group_id           = "sg-036620696910fdd53" 
+  subnet_id                   = "subnet-05673dafbf77b3d26"
+  security_group_id           = "sg-067e9d860469a5eb2" 
   ami_regions = [
     "us-east-2"
   ]
